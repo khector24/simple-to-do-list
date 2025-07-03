@@ -1,5 +1,9 @@
 
 <footer>
-    Copyright 2023 Kenny Hector
+    <p>&copy; <span id="year"></span> Kenny Hector</p>
 </footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </html>

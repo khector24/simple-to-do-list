@@ -10,7 +10,7 @@ let items = [
   { id: uuidv4(), todo: "Cook Food" },
   { id: uuidv4(), todo: "Eat Food" },
 ];
-const workItems = [];
+let workItems = [];
 
 app.set("view engine", "ejs");
 
@@ -28,7 +28,7 @@ app.get("/", function (req, res) {
 
 app.get("/work", function (req, res) {
   res.render("list", {
-    listTitle: "Work",
+    listTitle: "work",
     newListItems: workItems,
   });
 });
@@ -40,7 +40,7 @@ app.get("/about", function (req, res) {
 app.post("/", function (req, res) {
   const item = req.body.newItem;
 
-  if (req.body.list === "Work") {
+  if (req.body.list === "work") {
     workItems.push({ id: uuidv4(), todo: item });
     res.redirect("/work");
   } else {
@@ -51,7 +51,7 @@ app.post("/", function (req, res) {
 
 app.post("/delete", (req, res) => {
   const idToDelete = req.body.idToDelete;
-  const listType = req.body.listType;
+  const listType = req.body.listTitle;
 
   if (listType === "work") {
     workItems = workItems.filter((workItem) => workItem.id !== idToDelete);

@@ -40,6 +40,18 @@
       <button type="submit" name="list" value="<%= listTitle %>">+</button>
     </form>
   </div>
+
+  <script>
+    function editItem(form) {
+      const currentTodo = form.parentElement.querySelector("p").innerText;
+      const newTodo = prompt("Edit your item:", currentTodo);
+      if (newTodo) {
+        form.querySelector('input[name="updatedTodo"]').value = newTodo;
+        return true;
+      }
+      return false; // cancel the form submit if user hits cancel
+    }
+  </script>
 </body>
 
 <%- include("footer") -%>

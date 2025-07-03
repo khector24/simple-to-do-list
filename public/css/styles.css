@@ -100,7 +100,7 @@ input[type="text"]:focus {
   padding: 20px;
 }
 
-/* Trash button styling */
+/* Delete button styling */
 .delete-btn {
   margin-left: auto;
   margin-right: 20px;
@@ -118,6 +118,28 @@ input[type="text"]:focus {
 }
 
 .delete-btn:hover img {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Edit button styling */
+.edit-btn {
+  margin-left: auto;
+  margin-right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.edit-btn img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+.edit-btn:hover img {
   opacity: 1;
   transform: scale(1.2);
 }

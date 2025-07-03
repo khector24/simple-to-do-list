@@ -10,6 +10,15 @@
     <div class="item">
       <input type="checkbox" />
       <p><%= item.todo %></p>
+      <form action="/edit" method="POST" onsubmit="return editItem(this)">
+        <input type="hidden" name="idToEdit" value="<%= item.id %>" />
+        <input type="hidden" name="listTitle" value="<%= listTitle %>" />
+        <input type="hidden" name="updatedTodo" />
+        <button class="edit-btn">
+          <img src="/icons/pen.png" alt="Edit" />
+        </button>
+      </form>
+
       <form action="/delete" method="POST">
         <input type="hidden" name="idToDelete" value="<%= item.id %>" />
         <input type="hidden" name="listTitle" value="<%= listTitle %>" />

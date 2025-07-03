@@ -62,6 +62,30 @@ app.post("/delete", (req, res) => {
   }
 });
 
+app.post("/edit", (req, res) => {
+  const idToEdit = req.body.idToEdit;
+  const updatedTodo = req.body.updatedTodo;
+  const listType = req.body.listTitle;
+
+  if (listType === "work") {
+    workItems = workItems.map((workItem) => {
+      if (workItem.id === idToEdit) {
+        return { ...workItem, todo: updatedTodo };
+      }
+      return workItem;
+    });
+    res.redirect("/work");
+  } else {
+    items = items.map((item) => {
+      if (item.id === idToEdit) {
+        return { ...item, todo: updatedTodo };
+      }
+      return item;
+    });
+    res.redirect("/");
+  }
+});
+
 app.listen(3000, function () {
   console.log("Server started on port 3000");
 });

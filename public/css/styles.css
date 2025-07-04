@@ -79,14 +79,14 @@ input:checked + p {
   border-color: #a683e3;
 }
 
-/* Action buttons container */
+/* Action buttons layout (optional if wrapping forms in a div) */
 .action-buttons {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* Edit button */
+/* --- Edit Button --- */
 .edit-btn {
   background: none;
   border: none;
@@ -106,22 +106,27 @@ input:checked + p {
   transform: scale(1.2);
 }
 
-/* Save button */
+/* --- Save Button with image --- */
 .save-btn {
-  background-color: #4caf50;
+  background: none;
   border: none;
-  color: white;
-  font-size: 20px;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
+  transition: transform 0.2s ease;
 }
 
-/* Delete button */
+.save-btn img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+.save-btn:hover img {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* --- Delete Button --- */
 .delete-btn {
   background: none;
   border: none;
@@ -141,7 +146,7 @@ input:checked + p {
   transform: scale(1.2);
 }
 
-/* New item input and button */
+/* New item form */
 .box form[action="/"] {
   display: flex;
   justify-content: center;

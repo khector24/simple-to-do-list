@@ -23,67 +23,7 @@ h1 {
   text-align: center;
 }
 
-.item {
-  min-height: 70px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #f1f1f1;
-}
-
-.item:last-child {
-  border-bottom: 0;
-}
-
-input:checked + p {
-  text-decoration: line-through;
-  text-decoration-color: #a683e3;
-}
-
-input[type="checkbox"] {
-  margin: 20px;
-}
-
-p {
-  margin: 0;
-  padding: 20px;
-  font-size: 20px;
-  font-weight: 200;
-  color: #00204a;
-}
-
-form {
-  text-align: center;
-  margin-left: 20px;
-}
-
-button {
-  min-height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border-color: transparent;
-  background-color: #a683e3;
-  color: #fff;
-  font-size: 30px;
-  padding-bottom: 6px;
-  border-width: 0;
-}
-
-input[type="text"] {
-  text-align: center;
-  height: 60px;
-  top: 10px;
-  border: none;
-  background: transparent;
-  font-size: 20px;
-  font-weight: 200;
-  width: 313px;
-}
-
-input[type="text"]:focus {
-  outline: none;
-  box-shadow: inset 0 -3px 0 0 #a683e3;
-}
-
+/* Item layout */
 .item {
   min-height: 70px;
   display: flex;
@@ -91,41 +31,63 @@ input[type="text"]:focus {
   justify-content: space-between;
   padding: 0 20px;
   border-bottom: 1px solid #f1f1f1;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.box form[action="/"] {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+.item:last-child {
+  border-bottom: 0;
 }
 
-/* Delete button styling */
-.delete-btn {
-  margin-left: auto;
-  margin-right: 20px;
-  background: none;
+/* Checkbox */
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Strike-through if checked */
+input:checked + p {
+  text-decoration: line-through;
+  text-decoration-color: #a683e3;
+}
+
+/* To-do text */
+.item p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+  flex-grow: 1;
+}
+
+/* Inline edit input */
+.edit-input {
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+  padding: 10px 5px;
   border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: transform 0.2s ease;
+  border-bottom: 2px solid #a683e3;
+  background: transparent;
+  width: 100%;
+  max-width: 180px;
+  flex-grow: 1;
 }
 
-.delete-btn img {
-  width: 20px;
-  height: 20px;
-  opacity: 0.6;
+.edit-input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #a683e3;
 }
 
-.delete-btn:hover img {
-  opacity: 1;
-  transform: scale(1.2);
+/* Action buttons container */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Edit button styling */
+/* Edit button */
 .edit-btn {
-  margin-left: auto;
-  margin-right: 20px;
   background: none;
   border: none;
   cursor: pointer;
@@ -144,13 +106,84 @@ input[type="text"]:focus {
   transform: scale(1.2);
 }
 
+/* Save button */
+.save-btn {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  font-size: 20px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Delete button */
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.delete-btn img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+.delete-btn:hover img {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* New item input and button */
+.box form[action="/"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+input[type="text"][name="newItem"] {
+  text-align: center;
+  height: 60px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+}
+
+input[type="text"][name="newItem"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #a683e3;
+}
+
+button {
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #a683e3;
+  color: #fff;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+}
+
+/* Placeholder */
 ::placeholder {
   color: grey;
   opacity: 1;
 }
 
+/* Footer */
 footer {
-  color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
